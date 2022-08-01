@@ -53,7 +53,7 @@ function renderCanvas() {
   context.fillStyle = "black";
   context.fillRect(0, 0, width, height);
   // Paddle Color
-  context.fillStyle = 'white';
+  context.fillStyle = "white";
   // Player Paddle (Bottom)
   context.fillRect(paddleBottomX, height - 20, paddleWidth, paddleHeight);
   // Computer Paddle (Top)
@@ -63,15 +63,15 @@ function renderCanvas() {
   context.setLineDash([4]);
   context.moveTo(0, 350);
   context.lineTo(500, 350);
-  context.strokeStyle = 'grey';
+  context.strokeStyle = "grey";
   context.stroke();
   // Ball
   context.beginPath();
   context.arc(ballX, ballY, ballRadius, 2 * Math.PI, false);
-  context.fillStyle = 'white';
+  context.fillStyle = "white";
   context.fill();
   // Score
-  context.font = '32px Courier New';
+  context.font = "32px Courier New";
   context.fillText(playerScore, 20, canvas.height / 2 + 50);
   context.fillText(computerScore, 20, canvas.height / 2 - 30);
 }
@@ -85,7 +85,6 @@ function createCanvas() {
 }
 
 // Remove this
-
 
 // Reset Ball to Center
 function ballReset() {
@@ -172,15 +171,15 @@ function showGameOverEl(winner) {
   // Hide Canvas
   canvas.hidden = true;
   // Container
-  gameOverEl.textContent = '';
-  gameOverEl.classList.add('game-over-container');
+  gameOverEl.textContent = "";
+  gameOverEl.classList.add("game-over-container");
   // Title
-  const title = document.createElement('h1');
+  const title = document.createElement("h1");
   title.textContent = `${winner} Wins!`;
   // Button
-  const playAgainBtn = document.createElement('button');
-  playAgainBtn.setAttribute('onclick', 'startGame()');
-  playAgainBtn.textContent = 'Play Again';
+  const playAgainBtn = document.createElement("button");
+  playAgainBtn.setAttribute("onclick", "startGame()");
+  playAgainBtn.textContent = "Play Again";
   // Append
   gameOverEl.append(title, playAgainBtn);
   body.appendChild(gameOverEl);
@@ -211,7 +210,7 @@ function animate() {
 // Start Game, Reset Everything
 function startGame() {
   if (isGameOver && !isNewGame) {
-    body.removeChile(gameOverEl);
+    body.removeChild(gameOverEl);
     canvas.hidden = false;
   }
   isGameOver = false;
